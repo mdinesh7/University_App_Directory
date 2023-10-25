@@ -1,5 +1,6 @@
-# Welcome to GitHub Desktop!
+# Welcome to the University App Directory Project!
 
-This is your README. READMEs are where you can communicate what your project is and how to use it.
+Instructions to run the project, install the required python and django using pipinstall 
 
-Write your name on line 6, save it, and then head back to GitHub Desktop.
+1. CD into the project folder from the terminal
+2. Run the 'python manage.py runserver' command from project folder. This will host the web app in the http://127.0.0.1:8000/

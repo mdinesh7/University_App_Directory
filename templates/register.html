@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'bootstrap/css/bootstrap.min.css'%}">
+</head>
+
+<body>
+    <div class="col-md-offset-1">
+        <a href="/" class="btn btn-primary">Home</a>
+    </div>
+    <div class="container-fluid">
+        <div class="col-md-offset-4 col-md-4">
+            <h3 class="page-header text-primary ">Sign Up Page for New Developers</h3>
+            <form action="register" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="first_name" placeholder="First Name"><br>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="last_name" placeholder="Last Name"><br>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="username" placeholder="Username"><br>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="email" placeholder="email"><br>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password1" placeholder="Password"><br>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password2" placeholder="Confirm Password"><br>
+                </div>
+                <div class="form-group">
+                    <input type="Submit">
+                </div>
+            </form>
+
+            <div class="form-group">
+                {% for message in messages %}
+                <h3>
+                    {{message}}
+                </h3>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

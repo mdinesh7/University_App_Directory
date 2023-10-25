@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Information</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'bootstrap/css/bootstrap.min.css'%}">
+</head>
+
+<body>
+    <div class="col-md-offset-1">
+        <a href="/" class="btn btn-primary">Home</a>
+    </div>
+    <div class="container-fluid">
+        <div class="col-md-offset-4 col-md-4">
+            <h3 class="page-header text-primary text-center">Create New APP information for Developers</h3>
+            <form action="add" method="POST" autocomplete="off" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>APP NAME</label>
+                    <input type="text" class="form-control" name="name" placeholder="App Name"><br>
+                </div>
+                <div class="form-group">
+                    <label>DESCRIPTION</label>
+                    <input type="text" class="form-control" name="desc" placeholder="description"><br>
+                </div>
+                <div class="form-group">
+                    <label>CATEGORY</label>
+                    <input type="text" class="form-control" name="category" placeholder="category"><br>
+                </div>
+                <div class="form-group">
+                    <label>PAID APP? CHECK THE BOX</label>
+                    <input type="checkbox" name="is_free" value="true" placeholder="price"><br>
+                </div>
+                <div class="form-group">
+                    <label>APP_LOGO</label>
+                    <input type="file" name="logo_url" placeholder="appicon"><br>
+                </div>
+                <div class="form-group center">
+                    <input type="Submit" class="form-control" value="submit" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            {% if data%}
+            <h3 class="page-header text-primary text-center">Existing APP information View</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>App Name</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>PAID APP</th>
+                        <th>APP Logo</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+
+                {%for d in data%}
+                <tbody>
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{d.name}}</td>
+                        <td>{{d.desc}}</td>
+                        <td>{{d.category}}</td>
+                        <td>{{d.is_free}}</td>
+                        <td>{{d.logo_url}}</td>
+                        <td><a class="btn btn-success" href="update/{{d.id}}">Update</a></td>
+                        <td><a class="btn btn-danger" href="delete/{{d.id}}">Delete</a></td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+
+            </table>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+
+</html>

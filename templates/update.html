@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update App Information</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'bootstrap/css/bootstrap.min.css'%}">
+</head>
+
+<body>
+    <div class="col-md-offset-1">
+        <a href="/" class="btn btn-primary">Home</a>
+    </div>
+    <div class="container-fluid">
+        <div class="col-md-offset-4 col-md-4">
+            <h3 class="page-header text-primary text-center">Update App Information</h3>
+            <form action="/update/{{data.id}}" method="POST" autocomplete="off" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>APP NAME</label>
+                    <input type="text" class="form-control" value="{{data.name}}" name="name"
+                        placeholder="App Name"><br>
+                </div>
+                <div class="form-group">
+                    <label>DESCRIPTION</label>
+                    <input type="text" class="form-control" value="{{data.desc}}" name="desc"
+                        placeholder="description"><br>
+                </div>
+                <div class="form-group">
+                    <label>CATEGORY</label>
+                    <input type="text" class="form-control" value="{{data.category}}" name="category"
+                        placeholder="category"><br>
+                </div>
+                <div class="form-group">
+                    <label>PAID APP? CHECK THE BOX</label>
+                    <input type="checkbox" name="is_free" value="true" placeholder="price"><br>
+                </div>
+                <div class="form-group">
+                    <label>APP_LOGO</label>
+                    <input type="file" name="logo_url" value="{{data.logo_url}}" placeholder="appicon"><br>
+                </div>
+                <div class="form-group">
+                    <input type="Submit" class="form-control" value="update" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>

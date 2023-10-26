@@ -671,9 +671,9 @@ section {
 
 .home_search_container {
 	position: absolute;
-	top: 50%;
-	width: 50% !important;
-	left: 50%;
+	top: -353px;
+		width: calc(100% + 122px);
+		left: -61px;
 	padding-top: 47px;
 	padding-left: 61px;
 	padding-right: 61px;

@@ -653,7 +653,7 @@ section {
 .home_search_container {
 	position: absolute;
 	top: -339px;
-	width: 50%;
+	width: calc(100% + 122px);
 	left: -61px;
 	padding-top: 47px;
 	padding-left: 61px;
